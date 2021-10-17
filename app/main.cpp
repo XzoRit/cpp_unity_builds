@@ -1,4 +1,5 @@
-#include <lib/lib.hpp>
+#include <lib/add.hpp>
+#include <lib/mul.hpp>
 
 #include <boost/program_options.hpp>
 

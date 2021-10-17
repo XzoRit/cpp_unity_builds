@@ -15,14 +15,24 @@ add_library(
 target_sources(
   lib
   PRIVATE
-  "${src_dir}/lib.cpp"
-  "${src_dir}/lib.hpp"
+  "${src_dir}/add.cpp"
+  "${src_dir}/add.hpp"
+  "${src_dir}/anon_ns.hpp"
+  "${src_dir}/mul.cpp"
+  "${src_dir}/mul.hpp"
 )
 
 target_include_directories(
   lib
   PUBLIC
     ${inc_dir}
+)
+
+set_target_properties(
+  lib
+  PROPERTIES
+    UNITY_BUILD "ON"
+    UNITY_BUILD_UNIQUE_ID "THIS_LIB_UNITY_ID"
 )
 
 add_library(
@@ -38,7 +48,8 @@ add_executable(
 target_sources(
   lib_test
   PRIVATE
-  "${src_dir}/lib.test.cpp"
+  "${src_dir}/add.test.cpp"
+  "${src_dir}/mul.test.cpp"
   "${src_dir}/main.test.cpp"
 )
 
